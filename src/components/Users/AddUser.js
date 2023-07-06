@@ -15,6 +15,10 @@ const AddUser = (props) => {
   const [enteredAge, setEnterdAge] = useState(" ");
   const addUserHandler = (event) => {
     event.preventDefault();
+    if (enterdName.trim().length === 0 || enteredAge.trim().length == 0) {
+      return;
+    }
+    props.onAddUser(enterdName, enteredAge);
     console.log(enterdName, enteredAge);
     setEnteredName("");
     setEnterdAge("");
