@@ -11,11 +11,13 @@ const AddUser = (props) => {
   //     return { [input]: [value] };
   //   });
   // };
-  const [enterdName, setEnteredName] = useState("");
-  const [enteredAge, setEnterdAge] = useState("");
+  const [enterdName, setEnteredName] = useState(" ");
+  const [enteredAge, setEnterdAge] = useState(" ");
   const addUserHandler = (event) => {
     event.preventDefault();
     console.log(enterdName, enteredAge);
+    setEnteredName("");
+    setEnterdAge("");
   };
   const handleUserName = (value) => {
     setEnteredName(value);
@@ -30,12 +32,14 @@ const AddUser = (props) => {
         <label htmlFor="username">Username</label>
         <input
           id="username"
+          value={enterdName}
           onChange={(event) => handleUserName(event.target.value)}
           type="text"
         />
         <label htmlFor="age">Age (Years)</label>
         <input
           id="age"
+          value={enteredAge}
           onChange={(event) => handleAge(event.target.value)}
           type="number"
         />
